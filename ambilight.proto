@@ -4,3 +4,44 @@ message Example {
   optional int32 type = 1;
   optional string name = 2;
 }
+
+enum MessageType {
+  ACK = 0;
+  DISCOVERY = 1;
+  CONFIG = 2;
+  DATA = 3;
+}
+
+enum Sender {
+  SERVER = 0;
+  CLIENT_AMBILIGHT = 1;
+  CLIENT_AUDIOBOX = 2;
+}
+
+enum LedFormat {
+  SERPENTINE_GRID = 0;
+  RECTANGULAR_PERIMETER = 1;
+}
+
+message Message {
+  optional Sender sender = 1;
+  optional MessageType type = 2;
+  optional int32 sequence_number = 3;
+  optional int32 timestamp = 4;
+
+  message Config {
+    optional string ipv4 = 1;
+    optional int32 port = 2;
+    optional int32 num_leds = 3;
+    optional LedFormat led_format = 4;
+  }
+
+  message Data {
+    optional bytes led_data = 1;
+    optional bytes led_palette = 2;
+    optional int32 led_position = 3;
+  }
+
+  optional Config config = 5;
+  optional Data data = 6;
+}

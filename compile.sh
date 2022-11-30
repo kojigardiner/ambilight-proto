@@ -12,7 +12,7 @@ DST_PY_DIR=../ambilight-server/src/proto
 DST_C_DIR=../ambilight-client/src/proto
 SRC=$1
 
-echo "Writing python files"
+echo "Writing python files to $DST_PY_DIR"
 protoc -I=$SRC_DIR --python_out=$DST_PY_DIR ./$SRC
-echo "Writing c files"
+echo "Writing c files to $DST_C_DIR"
 ./generator/nanopb_generator.py ./$SRC -D $DST_C_DIR
