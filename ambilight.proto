@@ -1,10 +1,5 @@
 syntax = "proto3";
 
-message Example {
-  optional int32 type = 1;
-  optional string name = 2;
-}
-
 enum MessageType {
   ACK = 0;
   DISCOVERY = 1;

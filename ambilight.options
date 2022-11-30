@@ -1,6 +1,4 @@
-Example.name        max_length:40
-
-// 4-tuple of IP components
+// String of IP components separated by periods
 Message.Config.ipv4         max_length:15
 
 // With 3 bytes (RGB) per LED, this gives us enough for 256 LEDs
