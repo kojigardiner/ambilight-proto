@@ -5,6 +5,7 @@ enum MessageType {
   DISCOVERY = 1;
   CONFIG = 2;
   DATA = 3;
+  HEARTBEAT = 4;
 }
 
 enum Sender {
